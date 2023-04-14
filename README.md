@@ -296,7 +296,7 @@ In this example we will expose a sum function in a new `sum.ts` file.
 export function sum (a: number, b: number): number => a + b;
 ```
 
-Lastly, we need to create the entrypoint for the package, that is the `index.ts`. This file should be at the root of the `src` directory, i.e. `src/index.ts`. Here we will export all the components that we want to _expose_ to our package consumers.
+Lastly, we need to create the entrypoint for the package, that is the `index.ts`. This file should be at the root of the `src` directory, i.e. `src/index.ts`. Here we will export all the functions, components, constants, etc. that we want to _expose_ to our package consumers.
 
 ```
 export { sum } from './sum.js';
