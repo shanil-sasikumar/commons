@@ -175,21 +175,19 @@ jobs:
 
 This workflow includes two additional jobs in addition to the `build` job. These jobs are responsible for publishing the `nodejs/universal` and `nodejs/astro` packages, respectively. Let's start by looking at the job for the `astro` package.
 
-## <a name="astro_package_creation"></a>Astro package creation
+## <a name="astro_package_creation"></a>Package creation
 
-If you don't have a `nodejs` directory in your project's _root_ directory, you'll need to create one.
+Inside the `nodejs` directory, create a directory. This directory will contain the contents of the new package.
 
-Inside the `nodejs` directory, create a directory named `astro`. This `astro` directory will contain the contents of the `astro` package.
-
-To get started, add the files that should be located at the root level of the `astro` folder.
+To get started, add the following files at the root of the new directory..
 
 - package.json
 
 ```
 {
-  "name": "@netspective-labs/nlc-astro",
+  "name": "@netspective-labs/package-name",
   "version": "0.0.1",
-  "description": "A library with astro components and layouts",
+  "description": "Some brief description of the package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -200,7 +198,7 @@ To get started, add the files that should be located at the root level of the `a
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/netspective-labs/commons/nlc-astro.git"
+    "url": "git+https://github.com/netspective-labs/commons/package-name.git"
   },
   "keywords": [
     "library",
@@ -211,8 +209,8 @@ To get started, add the files that should be located at the root level of the `a
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "cp-astro-components": "cp -r src/components dist",
-    "build": "rm -rf dist && mkdir dist && npm run cp-astro-components && tsc",
+    "cp-astro-components": "cp -r src/components dist", // Only for astro packages
+    "build": "rm -rf dist && mkdir dist && npm run cp-astro-components && tsc", // Remove the npm run cp-astro-components if the package do not have any astro components
     "upgrade-major": "npm version major",
     "upgrade-minor": "npm version minor",
     "upgrade-patch": "npm version patch",
@@ -256,10 +254,10 @@ This will create the `package-lock.json` file.
 - .npmrc
 
 ```
-@OWNER:registry=https://npm.pkg.github.com
+@OWNERORORG:registry=https://npm.pkg.github.com
 ```
 
-Replace the _OWNER_ namespace with the owner of the repo or organization.
+Replace the _OWNERORORG_ namespace with the owner of the repo or organization.
 
 - .npmignore
 
@@ -290,25 +288,18 @@ tsconfig.json
 .DS_Store
 ```
 
-Now we just need to add a component inside a new `src/components` directory that you should create.
+Now create a `src` directory and inside of it you will start adding the files with the contents of your package.
 
-For example, we will create the `ActionItem.astro`
-
-```
----
-export interface Props {
-  readonly assignee: string;
-}
-const { assignee } = Astro.props;
----
-<mark>[<b>{ assignee }</b>] <slot /></mark>
-```
-
-Lastly, we need to create the entrypoint for the package, that is the `index.ts`. This file should be inside `src`. Here we will export all the components that we want to _expose_ to our package consumers.
+In this example we will expose a sum function in a new `sum.ts` file.
 
 ```
-// @ts-ignore
-export { default as ActionItem } from './components/ActionItem.astro';
+export function sum (a: number, b: number): number => a + b;
+```
+
+Lastly, we need to create the entrypoint for the package, that is the `index.ts`. This file should be at the root of the `src` directory, i.e. `src/index.ts`. Here we will export all the components that we want to _expose_ to our package consumers.
+
+```
+export { sum } from './sum.js';
 ```
 
 # Package authentication
@@ -352,24 +343,24 @@ NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 In the root of the project that you wish to install a `nodejs` package, add a `.npmrc` file with this content
 
 ```
-@OWNER:registry=https://npm.pkg.github.com
+@OWNERORORG:registry=https://npm.pkg.github.com
 ```
 
-Replace the _OWNER_ namespace with the owner of the repo or organization.
+Replace the _OWNERORORG_ namespace with the owner of the repo or organization.
 
 The purpose of this file is to configure the npm client to _use GitHub's package registry_ as the default registry for _installing_ and _publishing packages_. This is typically used to install or publish private packages hosted on GitHub's package registry.
 
 ## Install the package
 
-Let's use as an example the `astro package` that we've already created [here](#astro_package_creation).
+Let's use as an example the `astro package` that we've already created [here](#package_creation).
 
 The command to install the package may vary on the owner of the repo.
 
 ```
-pnpm install @OWNER/nlc-astro
+pnpm install @OWNERORORG/nlc-astro
 ```
 
-Once again replace the _OWNER_ namespace with the owner of the repo or organization.
+Once again replace the _OWNERORORG_ namespace with the owner of the repo or organization.
 
 ## Deploying packages
 
