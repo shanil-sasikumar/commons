@@ -90,52 +90,13 @@ pnpm install @netspective-labs/nlc-astro
 ├── .github                                  # GitHub-specific configuration files for the project.
 ├── dist                                     # compiled files generated after running the build command.
 ├── package.json                             # project metadata and dependencies information.
-├── pnpm-lock.yaml                           # information about the installed packages and their dependencies.
+├── package-lock.json                           # information about the installed packages and their dependencies.
 ├── README.md                                # the documentation for the project.
 ├── src
 │   ├── components                           # contains the reusable components used in the project.
 │   │   ├── ActionItem.astro
-│   │   ├── AGGrid.web.d.ts
-│   │   ├── AGGrid.web.js
-│   │   ├── ApacheEcharts.web.d.ts
-│   │   ├── ApacheEcharts.web.js
-│   │   ├── ChartJS.web.js
-│   │   ├── DiagramsNet.web.js
-│   │   ├── KrokiDiagram.web.js
-│   │   ├── MarkmapDiagram.web.js
-│   │   ├── Readability.web.js
-│   │   ├── TimeAgo.web.js
-│   │   ├── TimeDurationNarrative.web.js
-│   │   └── WordCount.web.js
 │   ├── env.d.ts                            # type definitions for environment variables used in the project
 │   ├── index.ts                            # the main entry point for the application
-│   └── lib                                 # utility functions used in the project
-│       ├── detect-route.ts
-│       ├── drizzle-aide.ts
-│       ├── foreign-content.ts
-│       ├── fs.ts
-│       ├── fs-walk.ts
-│       ├── health.ts
-│       ├── human.ts
-│       ├── interpolate.ts
-│       ├── knowledge.ts
-│       ├── memoize-api.ts
-│       ├── memoize-foreign-content.ts
-│       ├── memoize.ts
-│       ├── open-graph.ts
-│       ├── pg-conn.ts
-│       ├── pg-gitlab-cms.ts
-│       ├── README.md
-│       ├── remark-chart.ts
-│       ├── remark-diagram.ts
-│       ├── remark-reading-time.ts
-│       ├── remark-rewrite-links.ts
-│       ├── remark-rewrite-previewable-url.ts
-│       ├── remark-validate-resources.ts
-│       ├── slug.ts
-│       ├── tree-pathway.ts
-│       ├── tree.ts
-│       └── workspace.ts
 └── tsconfig.json                           # TypeScript compiler configuration for the project
 ```
 
