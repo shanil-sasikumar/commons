@@ -7,9 +7,9 @@ describe('Path Tree Node Pathway', () => {
   // a "terminal" is leaf node with something "interesting" (presumable a file
   // or other content); an "intermediary" is similar to a directory or container
   // of files
-  type Terminal = { readonly path: string };
-  type Intermediary = { readonly friendlyName: string };
-  type BreadcrumbUnit = { readonly label: string; readonly slug: string };
+  interface Terminal { readonly path: string }
+  interface Intermediary { readonly friendlyName: string }
+  interface BreadcrumbUnit { readonly label: string; readonly slug: string }
 
   it('populates path tree pathway from generator', () => {
     const tree = t.pathTree<Terminal, Intermediary>(

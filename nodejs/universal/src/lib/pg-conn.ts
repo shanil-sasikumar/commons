@@ -73,7 +73,7 @@ export const dbConfigureFromText = (
   }
 };
 
-export type SqlConnState = {
+export interface SqlConnState {
   readonly connID: PostgreSqlConnID;
   readonly state: 'unknown' | 'valid' | 'invalid connection' | 'invalid connection ID';
   readonly connection?: {
@@ -89,7 +89,7 @@ export type SqlConnState = {
     queryFn: (...args: A) => Promise<V>,
     key: string
   ) => (...args: A) => Promise<V>;
-};
+}
 
 export const mssFactory = ({
   isDbAvailable,
@@ -198,7 +198,7 @@ export const memoizableSqlResults = (options: { readonly isDbAvailable: () => bo
  * @returns a function that can be called idempotently to create or open the database
  */
 export const prepareConnsFactory = (configure: () => DatabasesConfiguration) => {
-  let connSqlInstances = new Map<PostgreSqlConnID, SqlConnState>();
+  const connSqlInstances = new Map<PostgreSqlConnID, SqlConnState>();
   let factory: {
     dbConfig: DatabasesConfiguration;
     connSqlInstances: Map<PostgreSqlConnID, SqlConnState>;
@@ -293,7 +293,7 @@ export const prepareConnsFactory = (configure: () => DatabasesConfiguration) => 
  *
  * @returns a function that can be called idempotently to create or open the database
  */
-export const dbConnsFactory = (connUrl: string = '') => {
+export const dbConnsFactory = (connUrl = '') => {
   const cf = prepareConnsFactory(() => {
     const result = dbConfigureFromText(() => connUrl);
     if (!result) return { isConfigured: false };

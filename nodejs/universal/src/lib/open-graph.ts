@@ -1,8 +1,8 @@
-export type OpenGraphMedia = {
+export interface OpenGraphMedia {
   url: string;
   width: number;
   height: number;
-};
+}
 
 export type OpenGraphVideo = OpenGraphMedia & {
   type: string;
@@ -12,11 +12,11 @@ export type OpenGraphImage = OpenGraphMedia & {
   type: string;
 };
 
-export type OpenGraphMusicSong = {
+export interface OpenGraphMusicSong {
   url: string;
   track: number;
   disc: number;
-};
+}
 
 export type OpenGraphTwitterImage = OpenGraphMedia & {
   alt?: string;

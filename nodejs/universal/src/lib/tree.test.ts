@@ -6,8 +6,8 @@ describe('Path Tree', () => {
   // a "terminal" is leaf node with something "interesting" (presumable a file
   // or other content); an "intermediary" is similar to a directory or container
   // of files
-  type Terminal = { readonly path: string };
-  type Intermediary = { readonly friendlyName: string };
+  interface Terminal { readonly path: string }
+  interface Intermediary { readonly friendlyName: string }
 
   const home: Terminal = {
     path: 'home',

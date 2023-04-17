@@ -134,7 +134,7 @@ export type ServiceHealthObservedValue =
   | number
   | Date
   | Record<string, unknown>
-  | Array<unknown>;
+  | unknown[];
 export type ServiceHealthObservedUnit = string;
 
 export interface ServiceHealthObservation {

@@ -1,4 +1,5 @@
-const posixPathRE = /^((\/?)(?:[^\/]*\/)*)((\.{1,2}|[^\/]+?|)(\.[^.\/]*|))[\/]*$/;
+const posixPathRE =
+  /^((\/?)(?:[^\/]*\/)*)((\.{1,2}|[^\/]+?|)(\.[^.\/]*|))[\/]*$/;
 
 /**
  * Given POSIX-style path see if it's a file-sys style route. This function is
@@ -24,7 +25,7 @@ export function detectFileSysStyleRoute(text: string) {
     modifiers,
   };
 
-  let modifierIndex = parsedPath.name?.lastIndexOf('.');
+  let modifierIndex = parsedPath.name?.lastIndexOf(".");
   if (modifierIndex && modifierIndex > 0) {
     let ppn = parsedPath.name;
     let modifier: string | undefined = ppn?.substring(modifierIndex);
@@ -32,8 +33,11 @@ export function detectFileSysStyleRoute(text: string) {
       modifiers.push(modifier);
       ppn = ppn?.substring(0, ppn.length - modifier.length);
 
-      modifierIndex = ppn?.lastIndexOf('.');
-      modifier = modifierIndex && modifierIndex > 0 ? ppn?.substring(modifierIndex) : undefined;
+      modifierIndex = ppn?.lastIndexOf(".");
+      modifier =
+        modifierIndex && modifierIndex > 0
+          ? ppn?.substring(modifierIndex)
+          : undefined;
     }
     parsedPath.name = ppn;
   }

@@ -38,6 +38,11 @@
   "devDependencies": {
     "@types/dompurify": "^2.4.0",
     "@types/jsdom": "^21.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "typescript": "^4.9.5",
     "vitest": "^0.28.5"
   },
@@ -46,6 +51,7 @@
     "upgrade-major": "npm version major",
     "upgrade-minor": "npm version minor",
     "upgrade-patch": "npm version patch",
+    "lint": "eslint \"src/**/*.ts\" --quiet --fix --resolve-plugins-relative-to .",
     "test": "exit 0"
   },
   "author": "",

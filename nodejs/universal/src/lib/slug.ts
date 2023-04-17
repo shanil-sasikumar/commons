@@ -2,9 +2,7 @@ export interface SlugifyOptions {
   lowercase: boolean;
   alphanumeric: boolean;
   separator: string;
-  replace: {
-    [index: string]: string;
-  };
+  replace: Record<string, string>;
 }
 
 // Default options

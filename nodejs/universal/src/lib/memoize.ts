@@ -55,11 +55,11 @@ export function singletonSync<A extends unknown[], V>(fn: (...args: A) => V): ty
 // We can increase documentation as we migrate away from their sources.
 
 // Just reject() without args, errors are not needed.
-export type MemoizeStoreStrategy<K, V> = {
-  get(key: K): Promise<V>; // rejected if not found
-  set(key: K, value: V): Promise<void>; // resolved on success, rejected on failure
-  toKey(args: unknown[]): Promise<K>;
-};
+export interface MemoizeStoreStrategy<K, V> {
+  get: (key: K) => Promise<V>; // rejected if not found
+  set: (key: K, value: V) => Promise<void>; // resolved on success, rejected on failure
+  toKey: (args: unknown[]) => Promise<K>;
+}
 
 /**
  * Memoizes an asynchronous function `fn` by returning a new function with the same signature that caches function calls.

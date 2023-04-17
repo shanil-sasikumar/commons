@@ -1,4 +1,5 @@
-import getReadingTime, { ReadTimeResults } from 'reading-time';
+import type { ReadTimeResults } from 'reading-time';
+import getReadingTime from 'reading-time';
 import { toString } from 'mdast-util-to-string';
 import type { Plugin } from 'unified';
 

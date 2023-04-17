@@ -6,13 +6,13 @@ export type FrontmatterValue =
   | number
   | boolean
   | { [x: string]: FrontmatterValue }
-  | Array<FrontmatterValue>;
-export type TransformableFrontmatter = { [x: string]: FrontmatterValue };
+  | FrontmatterValue[];
+export type TransformableFrontmatter = Record<string, FrontmatterValue>;
 
 // vfile https://www.npmjs.com/package/vfile instance but instead of using the
 // type directly we create a structured typed so that we don't have to  worry
 // about imports
-export type RemarkVfile = {
+export interface RemarkVfile {
   readonly value?: string | Buffer;
   readonly cwd?: string;
   readonly path: URL | string;
@@ -20,7 +20,7 @@ export type RemarkVfile = {
   readonly extname: string | undefined;
   readonly dirname: string | undefined;
   readonly data: any;
-};
+}
 export type RouteFrontmatterTransformer = (
   tf: () => TransformableFrontmatter,
   vfile: RemarkVfile
