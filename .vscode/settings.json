@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "deno.enable": true,
+  "deno.enablePaths": ["./udi-sii"],
+  "eslint.workingDirectories": ["./nodejs"]
+}

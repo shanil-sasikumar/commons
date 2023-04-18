@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "bradlc.vscode-tailwindcss",
+    "austenc.tailwind-docs",
+    "zarifprogrammer.tailwind-snippets",
+    "prql-lang.prql-vscode",
+    "unifiedjs.vscode-remark",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzhang.markdown-all-in-one",
+    "hediet.vscode-drawio",
+    "markwhen.markwhen",
+    "bierner.markdown-mermaid",
+    "mechatroner.rainbow-csv",
+    "spmeesseman.vscode-taskexplorer",
+    "vscode-icons-team.vscode-icons",
+    "denoland.vscode-deno",
+    "qwtel.sqlite-viewer",
+    "cmoog.sqlnotebook",
+    "jtladeiras.vscode-inline-sql",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens"
+  ],
+  "unwantedRecommendations": []
+}
