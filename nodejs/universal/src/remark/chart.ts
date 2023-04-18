@@ -1,8 +1,8 @@
-import type { Code, HTML } from "mdast";
-import { visit } from "unist-util-visit";
-import type { VFile } from "vfile";
-import YAML from "yaml";
-import { z } from "zod";
+import type { Code, HTML } from 'mdast';
+import { visit } from 'unist-util-visit';
+import type { VFile } from 'vfile';
+import YAML from 'yaml';
+import { z } from 'zod';
 
 export const chartJsSchema = z.object({
   canvas: z
@@ -34,7 +34,7 @@ function emitChartJs(original: Code, vfile: VFile) {
   }
 
   const node = original as unknown as HTML;
-  node.type = "html";
+  node.type = 'html';
   let pluginConfig: ChartJsPluginConfig;
   let chartJsCanvasConfig: any;
   try {
@@ -46,19 +46,14 @@ function emitChartJs(original: Code, vfile: VFile) {
   }
 
   chartJsPluginState.index++;
-  const elemID =
-    pluginConfig.canvas?.id ?? `chart-js-${chartJsPluginState.index}`;
+  const elemID = pluginConfig.canvas?.id ?? `chart-js-${chartJsPluginState.index}`;
   node.value = `
 		<canvas id="${elemID}" class="chart-js"></canvas>
 		<script>
 			(() => {
 				const render = () => {
 					const canvas = document.querySelector("#${elemID}");
-					const chart = new Chart(canvas, ${JSON.stringify(
-            chartJsCanvasConfig,
-            null,
-            "  ",
-          )});
+					const chart = new Chart(canvas, ${JSON.stringify(chartJsCanvasConfig, null, '  ')});
 					this.onclick = (evt) => {
 						const points = chart.getElementsAtEventForMode(evt, "nearest", {
 							intersect: true,
@@ -95,9 +90,7 @@ export const apacheEChartsPluginSchema = z.object({
     .optional(),
 });
 
-export type ApacheEChartsPluginConfig = z.infer<
-  typeof apacheEChartsPluginSchema
->;
+export type ApacheEChartsPluginConfig = z.infer<typeof apacheEChartsPluginSchema>;
 export interface ApacheEChartsPluginState {
   index: number;
 }
@@ -115,7 +108,7 @@ function emitApacheECharts(original: Code, vfile: VFile) {
   }
 
   const node = original as unknown as HTML;
-  node.type = "html";
+  node.type = 'html';
   let pluginConfig: ApacheEChartsPluginConfig;
   let echartsConfig: any;
   try {
@@ -127,9 +120,7 @@ function emitApacheECharts(original: Code, vfile: VFile) {
   }
 
   apacheEChartsPluginState.index++;
-  const elemID =
-    pluginConfig.canvas?.id ??
-    `apache-echarts-${apacheEChartsPluginState.index}`;
+  const elemID = pluginConfig.canvas?.id ?? `apache-echarts-${apacheEChartsPluginState.index}`;
   node.value = `
 		<div id="${elemID}" class="apache-echarts" style="width: ${
     pluginConfig.canvas?.width ?? 800
@@ -139,7 +130,7 @@ function emitApacheECharts(original: Code, vfile: VFile) {
 				const render = () => {
 					const chart = echarts.init(document.getElementById("${elemID}"));
 					console.dir({chart})
-					chart.setOption(${JSON.stringify(echartsConfig, null, "  ")});
+					chart.setOption(${JSON.stringify(echartsConfig, null, '  ')});
 					chart.on("click", ({ data }) => {
 						if (("navigation" in data) && data.navigation) {
 							window.location = data.navigation.url;
@@ -167,25 +158,21 @@ function emitApacheECharts(original: Code, vfile: VFile) {
 }
 
 export function remarkPlugin() {
-  return function transformer(
-    tree: any,
-    vfile: VFile,
-    next?: (...args: unknown[]) => unknown,
-  ) {
-    visit(tree, "code", (node: Code) => {
+  return function transformer(tree: any, vfile: VFile, next?: (...args: unknown[]) => unknown) {
+    visit(tree, 'code', (node: Code) => {
       switch (node.lang) {
-        case "chartjs":
+        case 'chartjs':
           emitChartJs(node, vfile);
           break;
 
-        case "apache-echarts":
-        case "echarts":
+        case 'apache-echarts':
+        case 'echarts':
           emitApacheECharts(node, vfile);
           break;
       }
     });
 
-    if (typeof next === "function") {
+    if (typeof next === 'function') {
       return next(null, tree, vfile);
     }
 

@@ -51,7 +51,6 @@
     "upgrade-major": "npm version major",
     "upgrade-minor": "npm version minor",
     "upgrade-patch": "npm version patch",
-    "lint": "eslint \"src/**/*.ts\" --quiet --fix --resolve-plugins-relative-to .",
     "test": "exit 0"
   },
   "author": "",

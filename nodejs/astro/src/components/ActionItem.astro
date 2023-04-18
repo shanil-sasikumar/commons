@@ -2,7 +2,7 @@
 export interface Props {
   // TODO:
   // readonly collection: typed collection name
-  // reaoonly slug: name of page  
+  // reaoonly slug: name of page
   readonly assignee: string;
 }
 const { assignee } = Astro.props;
@@ -11,4 +11,5 @@ const { assignee } = Astro.props;
 // - store the state into SQLite :memory: DB
 // - wrap in <span data-action-item={}></span> or add data to <mark> for identity at runtime
 ---
-<mark>[<b>{ assignee }</b>] <slot /></mark>
+
+<mark>[<b>{assignee}</b>] <slot /></mark>
