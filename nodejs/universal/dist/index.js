@@ -15,6 +15,10 @@ export { PostgreSqlDefaultConnID, dbConfigureFromText, dbConnsEnvConfigSchema, d
 export { TypicalContentCollection, TypicalContentCollections, TypicalUsers, gitLabIssuesQR, gitLabNamespaceQR, gitLabUsersAnalyticsQR, namespaceContent, namespacesContent, qualifiedComponentsDelim, } from './lib/pg-gitlab-cms.js';
 export { apacheEChartsPluginSchema, chartJsSchema, remarkPlugin, } from './remark/chart.js';
 export { remarkRewritePreviewableURLs, typicalTransformRelativePublicSrcAbsUrlWithoutPublic, typicalTransformRelativePublicSrcAbsUrlWithoutPublicFn, } from './remark/rewrite-previewable-url.js';
+export {
+    acquireResource, UniformResourceIdentifier, UniformResourceLabel, UniformResourceName, DigitalObjectIdentifier, UniformResourceProvenance,
+    UniformResource, isUniformResource, InvalidResource, isInvalidResource, ResourceTransformerContext, TransformedResource, isTransformedResource, nextTransformationPipePosition, allTransformationRemarks, UniformResourceTransformer, RemoveLabelLineBreaksAndTrimSpaces, RemoveTrackingCodesFromUrl, FollowedResource, isFollowedResource, RedirectedResource, isRedirectedResource, FollowRedirectsGranular, ReadableContentAsyncSupplier, MercuryReadableContent, isMercuryReadableContent, EnrichMercuryReadableContent, ReadableContentSupplier, MozillaReadabilityContent, isMozillaReadabilityContent, EnrichMozillaReadabilityContent, DownloadAttemptResult, isDownloadAttemptResult, DownloadSkipResult, isDownloadSkipResult, DownloadErrorResult, isDownloadErrorResult, DownloadSuccessResult, isDownloadSuccessResult, DownloadFileResult, isDownloadFileResult, DownloadIndeterminateFileResult, isDownloadIdeterminateFileResult, TypicalDownloaderOptions, TypicalDownloader, DownloadContent, DownloadHttpContentTypes, EnrichGovernedContent, FavIconSupplier, isFavIconSupplier, FavIconResource, CuratableContentResource, isCuratableContentResource, EnrichCuratableContent, AcquireResourceOptions,
+} from './lib/uniform-resource.js';
 export { remarkValidateResources } from './remark/validate-resources.js';
 export { slugifier } from './lib/slug.js';
 export { treePathwaysPreparer, } from './lib/tree-pathway.js';
