@@ -7,9 +7,13 @@ import * as fs from 'fs';
 import os from "os";
 import path from "path";
 import url from "url";
-import * as util from 'util';
 import { v4 as uuidv4 } from 'uuid';
-const streamPipeline = util.promisify(require('stream').pipeline);
+import { Readability } from '@mozilla/readability';
+import { JSDOM } from 'jsdom';
+import { pipeline } from 'stream';
+import { promisify } from 'util';
+import Mercury from '@postlight/mercury-parser';
+const streamPipeline = promisify(pipeline);
 export function isUniformResource(o) {
     return o && "isUniformResource" in o;
 }
@@ -140,7 +144,6 @@ class EnrichMercuryReadableContent {
                 return {
                     ...resource,
                     mercuryReadable: async () => {
-                        const Mercury = require('@postlight/mercury-parser');
                         return await Mercury.parse(resource.uri, { html: Buffer.from(tr.contentText, 'utf8') });
                     },
                 };
@@ -149,7 +152,6 @@ class EnrichMercuryReadableContent {
         return {
             ...resource,
             mercuryReadable: async () => {
-                const Mercury = require('@postlight/mercury-parser');
                 return await Mercury.parse(resource.uri);
             },
         };
@@ -168,8 +170,6 @@ class EnrichMozillaReadabilityContent {
                 return {
                     ...resource,
                     mozillaReadability: () => {
-                        const { Readability } = require('@mozilla/readability');
-                        const { JSDOM } = require('jsdom');
                         const jd = new JSDOM(tr.contentText, { url: resource.uri });
                         const reader = new Readability(jd.window.document);
                         return reader.parse();
@@ -180,8 +180,6 @@ class EnrichMozillaReadabilityContent {
         return {
             ...resource,
             mozillaReadability: () => {
-                const { Readability } = require('@mozilla/readability');
-                const { JSDOM } = require('jsdom');
                 const jd = new JSDOM(``, {
                     url: resource.uri,
                     includeNodeLocations: true,
