@@ -212,7 +212,10 @@ export {
   workspaceEditorResolver,
   workspaceEditorTargetResolvers,
 } from './lib/workspace.js';
-
+export {
+  acquireResource, UniformResourceIdentifier, UniformResourceLabel, UniformResourceName, DigitalObjectIdentifier, UniformResourceProvenance,
+  UniformResource, isUniformResource, InvalidResource, isInvalidResource, ResourceTransformerContext, TransformedResource, isTransformedResource, nextTransformationPipePosition, allTransformationRemarks, UniformResourceTransformer, RemoveLabelLineBreaksAndTrimSpaces, RemoveTrackingCodesFromUrl, FollowedResource, isFollowedResource, RedirectedResource, isRedirectedResource, FollowRedirectsGranular, ReadableContentAsyncSupplier, MercuryReadableContent, isMercuryReadableContent, EnrichMercuryReadableContent, ReadableContentSupplier, MozillaReadabilityContent, isMozillaReadabilityContent, EnrichMozillaReadabilityContent, DownloadAttemptResult, isDownloadAttemptResult, DownloadSkipResult, isDownloadSkipResult, DownloadErrorResult, isDownloadErrorResult, DownloadSuccessResult, isDownloadSuccessResult, DownloadFileResult, isDownloadFileResult, DownloadIndeterminateFileResult, isDownloadIdeterminateFileResult, TypicalDownloaderOptions, TypicalDownloader, DownloadContent, DownloadHttpContentTypes, EnrichGovernedContent, FavIconSupplier, isFavIconSupplier, FavIconResource, CuratableContentResource, isCuratableContentResource, EnrichCuratableContent, AcquireResourceOptions,
+} from './lib/uniform-resource.js';
 export { remarkDiagram } from './remark/diagram.js';
 export { remarkReadingTime } from './remark/reading-time.js';
 export { remarkRewriteLinks, replaceAsync, rewriteJSXURL } from './remark/rewrite-links.js';
