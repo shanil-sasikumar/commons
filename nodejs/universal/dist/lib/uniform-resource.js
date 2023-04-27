@@ -12,6 +12,7 @@ import { Readability } from '@mozilla/readability';
 import { JSDOM } from 'jsdom';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
+import Mercury from '@postlight/mercury-parser';
 const streamPipeline = promisify(pipeline);
 export function isUniformResource(o) {
     return o && "isUniformResource" in o;
@@ -143,7 +144,6 @@ class EnrichMercuryReadableContent {
                 return {
                     ...resource,
                     mercuryReadable: async () => {
-                        const Mercury = require('@postlight/mercury-parser');
                         return await Mercury.parse(resource.uri, { html: Buffer.from(tr.contentText, 'utf8') });
                     },
                 };
@@ -152,7 +152,6 @@ class EnrichMercuryReadableContent {
         return {
             ...resource,
             mercuryReadable: async () => {
-                const Mercury = require('@postlight/mercury-parser');
                 return await Mercury.parse(resource.uri);
             },
         };
