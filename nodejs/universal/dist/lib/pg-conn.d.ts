@@ -5,16 +5,7 @@ export declare const PostgreSqlDefaultConnID: "DEFAULT";
 export type PostgreSqlConnID = string | typeof PostgreSqlDefaultConnID;
 export type PostgreSqlConnURL = string;
 export declare const pgConnUrlPattern: RegExp;
-export declare const dbConnsEnvConfigSchema: z.ZodObject<{
-    defaultConnID: z.ZodString;
-    URLs: z.ZodRecord<z.ZodString, z.ZodString>;
-}, "strip", z.ZodTypeAny, {
-    defaultConnID: string;
-    URLs: Record<string, string>;
-}, {
-    defaultConnID: string;
-    URLs: Record<string, string>;
-}>;
+export declare const dbConnsEnvConfigSchema: any;
 export interface DatabasesConfiguration {
     readonly isConfigured: boolean;
     readonly connURLs?: z.infer<typeof dbConnsEnvConfigSchema>;
@@ -23,7 +14,7 @@ export interface DatabasesConfiguration {
     readonly configTextParseError?: Error | undefined;
 }
 export declare const dbConfigureFromText: (configSupplier: () => string | undefined) => DatabasesConfiguration;
-export type SqlConnState = {
+export interface SqlConnState {
     readonly connID: PostgreSqlConnID;
     readonly state: 'unknown' | 'valid' | 'invalid connection' | 'invalid connection ID';
     readonly connection?: {
@@ -36,7 +27,7 @@ export type SqlConnState = {
     readonly connUrlInfo?: string | undefined;
     readonly SQL: postgres.Sql;
     readonly memoizableSqlResults: <A extends unknown[], V>(queryFn: (...args: A) => Promise<V>, key: string) => (...args: A) => Promise<V>;
-};
+}
 export declare const mssFactory: ({ isDbAvailable, mssStatsInstances, isInDevelopment, }: {
     readonly isDbAvailable: () => boolean;
     readonly mssStatsInstances?: Map<string, {

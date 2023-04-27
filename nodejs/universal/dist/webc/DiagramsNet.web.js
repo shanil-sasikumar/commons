@@ -1,4 +1,4 @@
-export default class DiagramsNetViewerComponent extends HTMLElement {
+class DiagramsNetViewerComponent extends HTMLElement {
     static diagnoseAttrName = 'diagnose';
     static drawIoSrcUrlAttrName = 'drawio-url';
     static diagramTitleAttrName = 'diagram-title';
@@ -47,4 +47,5 @@ export default class DiagramsNetViewerComponent extends HTMLElement {
         });
     }
 }
+export default DiagramsNetViewerComponent;
 customElements.define('diagrams-net-viewer', DiagramsNetViewerComponent);

@@ -1,4 +1,4 @@
-export default class KrokiComponent extends HTMLElement {
+class KrokiComponent extends HTMLElement {
     static hostAttrName = 'host';
     static diagramAttrName = 'type';
     static outputAttrName = 'output';
@@ -87,4 +87,5 @@ export default class KrokiComponent extends HTMLElement {
         }
     }
 }
+export default KrokiComponent;
 customElements.define('kroki-diagram', KrokiComponent);

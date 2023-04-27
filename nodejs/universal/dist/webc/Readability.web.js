@@ -1,4 +1,4 @@
-export default class ReadabilityComponent extends HTMLElement {
+class ReadabilityComponent extends HTMLElement {
     static originUrlAttrName = 'origin-url';
     static get observedAttributes() {
         return [ReadabilityComponent.originUrlAttrName];
@@ -48,4 +48,5 @@ export default class ReadabilityComponent extends HTMLElement {
         }
     }
 }
+export default ReadabilityComponent;
 customElements.define('mozilla-readable', ReadabilityComponent);

@@ -1,4 +1,4 @@
-export default class ChartJsComponent extends HTMLElement {
+class ChartJsComponent extends HTMLElement {
     static configHrefAttrName = 'config-href';
     static get observedAttributes() {
         return [ChartJsComponent.configHrefAttrName];
@@ -68,4 +68,5 @@ export default class ChartJsComponent extends HTMLElement {
         }
     }
 }
+export default ChartJsComponent;
 customElements.define('chart-js', ChartJsComponent);

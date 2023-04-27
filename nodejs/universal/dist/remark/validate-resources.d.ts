@@ -1,4 +1,3 @@
-import type { VFile } from 'vfile';
 /**
  * We want to be able to validate resources that links, images and other tags
  * reference.

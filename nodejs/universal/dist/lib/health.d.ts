@@ -67,7 +67,7 @@ export interface HealthServiceStatusEndpoint {
 export declare function isHealthy(o: unknown): o is HealthyServiceStatus;
 export declare function isUnhealthy(o: unknown): o is UnhealthyServiceStatus;
 export type TypicalServiceHealthMetricName = 'utilization' | 'responseTime' | 'connections' | 'uptime';
-export type ServiceHealthObservedValue = string | number | Date | Record<string, unknown> | Array<unknown>;
+export type ServiceHealthObservedValue = string | number | Date | Record<string, unknown> | unknown[];
 export type ServiceHealthObservedUnit = string;
 export interface ServiceHealthObservation {
     metricName: TypicalServiceHealthMetricName | string;

@@ -1,4 +1,4 @@
-export default class ApacheEChartsComponent extends HTMLElement {
+class ApacheEChartsComponent extends HTMLElement {
     static configHrefAttrName = 'config-href';
     static get observedAttributes() {
         return [ApacheEChartsComponent.configHrefAttrName];
@@ -64,4 +64,5 @@ export default class ApacheEChartsComponent extends HTMLElement {
         }
     }
 }
+export default ApacheEChartsComponent;
 customElements.define('apache-echarts', ApacheEChartsComponent);

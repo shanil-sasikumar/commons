@@ -32,7 +32,7 @@ export const gitLabNamespaceQR = (conn, name) => conn.memoizableSqlResults(async
     where name = ${name}`;
 }, `gitlab-pkcNamespace-${name}`);
 export const qualifiedComponentsDelim = ':/:';
-export class TypicalContentCollection {
+class TypicalContentCollection {
     static captionPrepRegExp = /\b(\w)/g;
     #analytics;
     url;
@@ -83,7 +83,8 @@ export class TypicalContentCollection {
         return this.items.push(prepareAssn);
     }
 }
-export class TypicalContentCollections {
+export { TypicalContentCollection };
+class TypicalContentCollections {
     namespace;
     static singleton = (conn, ns) => m.singleton(async () => {
         const assignments = new TypicalContentCollections(ns);
@@ -117,6 +118,7 @@ export class TypicalContentCollections {
         return this;
     }
 }
+export { TypicalContentCollections };
 export const gitLabIssuesQR = (conn, namespace) => conn.memoizableSqlResults(async () => {
     return await conn.SQL `WITH groups_cte (id) AS (
     /* Find all children of given group ID (e.g. 'Precision Knowledge Content') */
@@ -252,7 +254,7 @@ export const gitLabIssuesQR = (conn, namespace) => conn.memoizableSqlResults(asy
     ) irrelevantBy ON true
    ORDER BY project.name, assignment.created_at`;
 }, `gitlab-gitLabIssues-${namespace.id}-${namespace.name}`);
-export class TypicalUsers {
+class TypicalUsers {
     namespace;
     static singleton = (conn, ns) => m.singleton(async () => {
         const users = new TypicalUsers(ns);
@@ -288,6 +290,7 @@ export class TypicalUsers {
         return this;
     }
 }
+export { TypicalUsers };
 export const gitLabUsersAnalyticsQR = (conn, namespace) => conn.memoizableSqlResults(async () => {
     return await conn.SQL `WITH groups_cte (id) AS (
     /* Find all children of given group ID (e.g. 'Precision Knowledge Content') */

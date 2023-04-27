@@ -142,7 +142,7 @@ export const memoizableSqlResults = (options) => {
  * @returns a function that can be called idempotently to create or open the database
  */
 export const prepareConnsFactory = (configure) => {
-    let connSqlInstances = new Map();
+    const connSqlInstances = new Map();
     let factory;
     return () => {
         if (factory)

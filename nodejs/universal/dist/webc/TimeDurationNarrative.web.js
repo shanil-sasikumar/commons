@@ -1,4 +1,4 @@
-export default class TimeDurationSpanElement extends HTMLSpanElement {
+class TimeDurationSpanElement extends HTMLSpanElement {
     static MINUTE = 60;
     static HOUR = TimeDurationSpanElement.MINUTE * 60;
     static DAY = TimeDurationSpanElement.HOUR * 24;
@@ -40,6 +40,7 @@ export default class TimeDurationSpanElement extends HTMLSpanElement {
         this.innerHTML = TimeDurationSpanElement.durationNarrative(new Date(this.getAttribute('start')), new Date(this.getAttribute('finish')));
     }
 }
+export default TimeDurationSpanElement;
 /**
  * Create a custom element which will take any date and show long ago it was.
  * Usage in HTML:

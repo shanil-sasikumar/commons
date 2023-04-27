@@ -22,15 +22,18 @@ export function detectFileSysStyleRoute(text) {
         name: components[3],
         modifiers,
     };
-    let modifierIndex = parsedPath.name?.lastIndexOf('.');
+    let modifierIndex = parsedPath.name?.lastIndexOf(".");
     if (modifierIndex && modifierIndex > 0) {
         let ppn = parsedPath.name;
         let modifier = ppn?.substring(modifierIndex);
         while (modifier && modifier.length > 0) {
             modifiers.push(modifier);
             ppn = ppn?.substring(0, ppn.length - modifier.length);
-            modifierIndex = ppn?.lastIndexOf('.');
-            modifier = modifierIndex && modifierIndex > 0 ? ppn?.substring(modifierIndex) : undefined;
+            modifierIndex = ppn?.lastIndexOf(".");
+            modifier =
+                modifierIndex && modifierIndex > 0
+                    ? ppn?.substring(modifierIndex)
+                    : undefined;
         }
         parsedPath.name = ppn;
     }

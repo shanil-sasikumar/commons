@@ -1,11 +1,7 @@
 import type { AnySQLiteColumn } from 'drizzle-orm/sqlite-core/columns/common.js';
-import type { AnySQLiteTable } from 'drizzle-orm/sqlite-core/table.js';
 export declare const snakeToCamelCase: (text: string) => string;
-export declare const primaryKeyFK: (column: AnySQLiteColumn<{}>) => import("drizzle-orm/sqlite-core").SQLiteTextBuilder<string>;
-export declare const atTimestamp: (name: string) => import("drizzle-orm/sqlite-core").SQLiteTimestampBuilder<{
-    notNull: false;
-    hasDefault: false;
-}>;
+export declare const primaryKeyFK: (column: AnySQLiteColumn) => any;
+export declare const atTimestamp: (name: string) => any;
 /**
  * TODO for linting:
  * - [ ] Review https://azimutt.app/ to see the kinds of schema analysis it does:
@@ -33,27 +29,19 @@ export declare const atTimestamp: (name: string) => import("drizzle-orm/sqlite-c
 export declare function tableBuilderAide<Principal extends string, PrimaryKeyColName extends string = `${Principal}_id`>(tableName: Principal): {
     tableName: Principal;
     primaryKeyColName: PrimaryKeyColName;
-    primaryKey: () => import("drizzle-orm/sqlite-core/columns/common.js").SQLiteColumnBuilder<{
-        data: string;
-        driverParam: string;
-        hasDefault: false;
-        notNull: true;
-    }, {}>;
-    primaryKeyFK: (column: AnySQLiteColumn<{}>) => import("drizzle-orm/sqlite-core").SQLiteTextBuilder<string>;
-    atTimestamp: (name: string) => import("drizzle-orm/sqlite-core").SQLiteTimestampBuilder<{
-        notNull: false;
-        hasDefault: false;
-    }>;
+    primaryKey: () => any;
+    primaryKeyFK: (column: AnySQLiteColumn) => any;
+    atTimestamp: (name: string) => any;
     indexName: (...columns: AnySQLiteColumn[]) => string;
     uniqueIndexName: (...columns: AnySQLiteColumn[]) => string;
-    lintTable: (table: AnySQLiteTable<{}>, helpers: {
+    lintTable: (table: AnySQLiteTable, helpers: {
         encounterIssue: (...i: {
             issue: string;
         }[]) => void;
         snakeToCamelCase: (text: string) => string;
         ignore?: {
-            primaryKeyNameConsistency?: ((column: AnySQLiteColumn<{}>) => boolean) | undefined;
-            propNameConsistency?: ((column: AnySQLiteColumn<{}>) => boolean) | undefined;
+            primaryKeyNameConsistency?: ((column: AnySQLiteColumn) => boolean) | undefined;
+            propNameConsistency?: ((column: AnySQLiteColumn) => boolean) | undefined;
         } | undefined;
     }) => void;
 };

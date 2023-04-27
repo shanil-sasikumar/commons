@@ -15,7 +15,7 @@ export interface NamespaceContent {
 }
 export declare const namespacesContent: Map<string, NamespaceContent>;
 export declare function namespaceContent(conn: SqlConnState, name: string): Promise<NamespaceContent | undefined>;
-export declare const gitLabNamespaceQR: (conn: SqlConnState, name: string) => () => Promise<import("postgres").RowList<Namespace[]>>;
+export declare const gitLabNamespaceQR: (conn: SqlConnState, name: string) => () => Promise<any>;
 export declare const qualifiedComponentsDelim = ":/:";
 export type ContentCollectionPathComponent = string;
 export type ContentCollectionPath = string;
@@ -104,40 +104,7 @@ export declare class TypicalContentCollections implements ContentCollections {
     constructor(namespace: Namespace);
     populate(conn: SqlConnState): Promise<ContentCollections>;
 }
-export declare const gitLabIssuesQR: (conn: SqlConnState, namespace: Namespace) => () => Promise<import("postgres").RowList<{
-    groupURL: string;
-    groupPathComponent: string;
-    groupName: string;
-    groupNameQualified: string;
-    groupDescription: string;
-    projectPath: string;
-    projectName: string;
-    projectNameQualified: string;
-    projectDescription: string;
-    assignmentId: number;
-    assignmentIID: number;
-    projectURL: string;
-    assignmentTitleHTML: string;
-    assignmentDescriptionHTML: string;
-    assignmentTitle: string;
-    assignmentDescription: string;
-    assignmentCreatedByUserName: string;
-    assignmentCreatedByUserID: number;
-    assignmentCreatedAt: Date;
-    assignmentDueOn: Date;
-    assignmentDueInDays: number;
-    todosCount: number;
-    viewedCount: number;
-    completedCount: number;
-    irrelevantCount: number;
-    ignoredCount: number;
-    authorizedUserIds: number[];
-    assignedUserIds: number[];
-    mentionedUserIds: number[];
-    viewedByUserIds: number[];
-    completedByUserIds: number[];
-    irrelevantByUserIds: number[];
-}[]>>;
+export declare const gitLabIssuesQR: (conn: SqlConnState, namespace: Namespace) => () => Promise<any>;
 export interface User {
     readonly id: number;
     readonly email: string;
@@ -165,17 +132,4 @@ export declare class TypicalUsers implements Users {
     constructor(namespace: Namespace);
     populate(conn: SqlConnState): Promise<Users>;
 }
-export declare const gitLabUsersAnalyticsQR: (conn: SqlConnState, namespace: Namespace) => () => Promise<import("postgres").RowList<{
-    id: number;
-    email: string;
-    name: string;
-    userName: string;
-    authoredIssuesCount: number;
-    assignedIssuesCount: number;
-    mentionedInIssuesCount: number;
-    viewedReactionsCount: number;
-    irrelevantReactionsCount: number;
-    completedReactionsCount: number;
-    incompleteMentionsCount: number;
-    ignoredMentionsCount: number;
-}[]>>;
+export declare const gitLabUsersAnalyticsQR: (conn: SqlConnState, namespace: Namespace) => () => Promise<any>;

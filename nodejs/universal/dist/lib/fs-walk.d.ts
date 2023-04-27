@@ -1,4 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
 import * as fs from 'node:fs';
 export interface WalkEntry {
     readonly parentRelPath?: string | undefined;

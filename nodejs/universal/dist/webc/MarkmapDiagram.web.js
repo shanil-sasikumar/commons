@@ -1,6 +1,6 @@
 import { Transformer } from 'markmap-lib';
 import { Markmap } from 'markmap-view';
-export default class MarkmapComponent extends HTMLElement {
+class MarkmapComponent extends HTMLElement {
     static diagnoseAttrName = 'diagnose';
     static get observedAttributes() {
         return [MarkmapComponent.diagnoseAttrName];
@@ -44,4 +44,5 @@ export default class MarkmapComponent extends HTMLElement {
         }
     }
 }
+export default MarkmapComponent;
 customElements.define('markmap-diagram', MarkmapComponent);

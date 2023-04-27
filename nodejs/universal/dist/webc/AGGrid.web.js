@@ -1,4 +1,4 @@
-export default class AgGridComponent extends HTMLElement {
+class AgGridComponent extends HTMLElement {
     static configHrefAttrName = 'config-href';
     static domLayoutAttrName = 'dom-layout';
     static displayAfterGridReady = 'display-after-grid-ready';
@@ -98,4 +98,5 @@ export default class AgGridComponent extends HTMLElement {
         }
     }
 }
+export default AgGridComponent;
 customElements.define('ag-grid', AgGridComponent);
