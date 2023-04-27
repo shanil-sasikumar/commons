@@ -1,6 +1,6 @@
-import * as qc from "@shah/queryable-content";
-import * as tru from "@shah/traverse-urls";
-import * as p from "@shah/ts-pipe";
+import * as qc from "./queryable-content.js";
+import * as tru from "./traverse-urls.js";
+import * as p from "./ts-pipe.js";
 import contentDisposition from "content-disposition";
 import ft from "file-type";
 import * as fs from 'fs';
@@ -8,7 +8,6 @@ import os from "os";
 import path from "path";
 import { Writable } from 'stream';
 import url from "url";
-import * as util from 'util';
 import { v4 as uuidv4 } from 'uuid';
 import { Readability } from '@mozilla/readability';
 import { JSDOM } from 'jsdom';

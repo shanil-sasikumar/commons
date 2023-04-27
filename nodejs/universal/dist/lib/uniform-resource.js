@@ -1,6 +1,6 @@
-import * as qc from "@shah/queryable-content";
-import * as tru from "@shah/traverse-urls";
-import * as p from "@shah/ts-pipe";
+import * as qc from "./queryable-content.js";
+import * as tru from "./traverse-urls.js";
+import * as p from "./ts-pipe.js";
 import contentDisposition from "content-disposition";
 import ft from "file-type";
 import * as fs from 'fs';
