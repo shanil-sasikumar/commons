@@ -8,12 +8,12 @@ import os from "os";
 import path from "path";
 import { Writable } from 'stream';
 import url from "url";
+import * as util from 'util';
 import { v4 as uuidv4 } from 'uuid';
 import { Readability } from '@mozilla/readability';
 import { JSDOM } from 'jsdom';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
-import Mercury from '@postlight/mercury-parser';
 const streamPipeline = promisify(pipeline);
 
 /*******************************
@@ -219,6 +219,7 @@ export class EnrichMercuryReadableContent implements UniformResourceTransformer 
                 return {
                     ...resource,
                     mercuryReadable: async (): Promise<{ [key: string]: any }> => {
+                        const Mercury = require('@postlight/mercury-parser');
                         return await Mercury.parse(resource.uri, { html: Buffer.from(tr.contentText, 'utf8') });
                     },
                 }
@@ -228,6 +229,7 @@ export class EnrichMercuryReadableContent implements UniformResourceTransformer 
         return {
             ...resource,
             mercuryReadable: async (): Promise<{ [key: string]: any }> => {
+                const Mercury = require('@postlight/mercury-parser');
                 return await Mercury.parse(resource.uri);
             },
         }
