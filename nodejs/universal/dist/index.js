@@ -1,7 +1,6 @@
 // TODO: Replace the imports for "* as {name}"
 // ==== Lib ===
 export { detectFileSysStyleRoute } from './lib/detect-route.js';
-export { atTimestamp, primaryKeyFK, snakeToCamelCase, tableBuilderAide, } from './lib/drizzle-aide.js';
 export { foreignContentSchema, queryableContent, queryableSanitizedContent, readableContent, } from './lib/foreign-content.js';
 export { walkFsEntries } from './lib/fs-walk.js';
 export { copyFileIfNewer, copyFileIfNewerMemoizeEffects, } from './lib/fs.js';
@@ -27,14 +26,3 @@ export { pipe, pipeSync } from './lib/ts-pipe.js';
 export { remarkDiagram } from './remark/diagram.js';
 export { remarkReadingTime } from './remark/reading-time.js';
 export { remarkRewriteLinks, replaceAsync, rewriteJSXURL } from './remark/rewrite-links.js';
-// === Components ===
-export { default as AgGridComponent } from './webc/AGGrid.web.js';
-export { default as ApacheEChartsComponent } from './webc/ApacheEcharts.web.js';
-export { default as ChartJsComponent } from './webc/ChartJS.web.js';
-export { default as DiagramsNetViewerComponent } from './webc/DiagramsNet.web.js';
-export { default as KrokiComponent } from './webc/KrokiDiagram.web.js';
-export { default as MarkmapComponent } from './webc/MarkmapDiagram.web.js';
-export { default as ReadabilityComponent } from './webc/Readability.web.js';
-export { default as TimeAgoSpanElement } from './webc/TimeAgo.web.js';
-export { default as TimeDurationSpanElement } from './webc/TimeDurationNarrative.web.js';
-export { default as WordCountElement } from './webc/WordCount.web.js';
