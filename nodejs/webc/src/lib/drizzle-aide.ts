@@ -70,7 +70,7 @@ export function tableBuilderAide<
     ) => {
       const { encounterIssue, ignore } = helpers;
       const columns = getTableColumns(table);
-      for (const colEntry of Object.entries(columns)) {
+      for (const colEntry of Object.entries<AnySQLiteColumn>(columns)) {
         const [propName, column] = colEntry;
         // make sure the table has a properly-named primary key
         if (

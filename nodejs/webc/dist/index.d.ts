@@ -1,4 +1,5 @@
 export { atTimestamp, primaryKeyFK, snakeToCamelCase, tableBuilderAide, } from './lib/drizzle-aide.js';
+export { supplierTBA, hostTBA, buildEventTBA, supplier, Supplier, SupplierInsertable, host, Host, HostInsertable, buildEvent, BuildEvent, BuildEventInsertable, schema } from './lib/observability.drizzle.js';
 export { default as AgGridComponent } from './components/AGGrid.web.js';
 export { default as ApacheEChartsComponent } from './components/ApacheEcharts.web.js';
 export { default as ChartJsComponent } from './components/ChartJS.web.js';

@@ -1,5 +1,6 @@
 // ==== Lib ===
 export { atTimestamp, primaryKeyFK, snakeToCamelCase, tableBuilderAide, } from './lib/drizzle-aide.js';
+export { supplierTBA, hostTBA, buildEventTBA, supplier, host, buildEvent, schema } from './lib/observability.drizzle.js';
 // === Components ===
 export { default as AgGridComponent } from './components/AGGrid.web.js';
 export { default as ApacheEChartsComponent } from './components/ApacheEcharts.web.js';
